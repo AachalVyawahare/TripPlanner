@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 
 # 🔹 Replace YOUR_PASSWORD with your actual Atlas password
-MONGO_URI = "mongodb+srv://trip_admin:kiFB2TnNFb0q212T@tripplannercluster.rxnqay4.mongodb.net/trip_planner?retryWrites=true&w=majority"
+MONGO_URI = "YOUR_MONGO_URI"
 
 client = MongoClient(MONGO_URI)
 
