@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Profile – AI Trip Planner</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="top-logos">
+        <img src="/static/image/logo.png" alt="Left Logo" class="logo-left">
+
+        <div class="user-menu">
+            <div class="menu-icon user-menu-btn" onclick="toggleMenu(event)">
+                <div class="user-avatar">{{ session['user']['name'][0] | upper }}</div>
+                <span class="user-menu-name">{{ session['user']['name'].split()[0] }}</span>
+                <span class="user-menu-arrow">▾</span>
+            </div>
+            <div id="dropdownMenu" class="dropdown-content">
+                <div class="profile-info">
+                    <div class="profile-avatar-big">{{ session['user']['name'][0] | upper }}</div>
+                    <strong>{{ session['user']['name'] }}</strong><br>
+                    <small>{{ session['user']['email'] }}</small>
+                </div>
+                <hr>
+                <a href="/">🏠 Home</a>
+                <a href="/history">📋 History</a>
+                <a href="/logout" style="color:#c33764;">🚪 Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="auth-page">
+        <div class="edit-profile-card">
+
+            <div class="edit-profile-header">
+                <div class="edit-profile-avatar">{{ session['user']['name'][0] | upper }}</div>
+                <h2>Edit Profile</h2>
+                <p>Update your account details below</p>
+            </div>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            <form method="POST" action="/edit-profile">
+                <input type="hidden" name="action" value="update_info">
+                <div class="edit-section">
+                    <div class="edit-section-title">👤 Personal Information</div>
+                    <div class="input-icon-wrap" style="margin-bottom:14px;">
+                        <span class="input-icon">👤</span>
+                        <input type="text" name="name" value="{{ session['user']['name'] }}" placeholder="Full Name"
+                            required style="width:100%;box-sizing:border-box;">
+                    </div>
+                    <div class="input-icon-wrap" style="margin-bottom:14px;">
+                        <span class="input-icon">📧</span>
+                        <input type="email" name="email" value="{{ session['user']['email'] }}"
+                            placeholder="Email Address" required style="width:100%;box-sizing:border-box;">
+                    </div>
+                    <button type="submit" class="edit-save-btn">Save Changes ✅</button>
+                </div>
+            </form>
+
+            <div class="edit-divider"></div>
+
+            <form method="POST" action="/edit-profile">
+                <input type="hidden" name="action" value="change_password">
+                <div class="edit-section">
+                    <div class="edit-section-title">🔒 Change Password</div>
+                    <div class="input-icon-wrap" style="margin-bottom:14px;">
+                        <span class="input-icon">🔑</span>
+                        <input type="password" name="current_password" placeholder="Current Password" required
+                            style="width:100%;box-sizing:border-box;">
+                    </div>
+                    <div class="input-icon-wrap" style="margin-bottom:14px;">
+                        <span class="input-icon">🔒</span>
+                        <input type="password" name="new_password" placeholder="New Password (min 6 chars)" required
+                            style="width:100%;box-sizing:border-box;">
+                    </div>
+                    <div class="input-icon-wrap" style="margin-bottom:14px;">
+                        <span class="input-icon">✅</span>
+                        <input type="password" name="confirm_password" placeholder="Confirm New Password" required
+                            style="width:100%;box-sizing:border-box;">
+                    </div>
+                    <button type="submit" class="edit-save-btn">Change Password 🔐</button>
+                </div>
+            </form>
+
+            <div class="edit-divider"></div>
+            <a href="/" class="edit-back-btn">← Back to Home</a>
+
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu(event) {
+            event.stopPropagation();
+            const menu = document.getElementById("dropdownMenu");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+        document.addEventListener("click", function (event) {
+            const menu = document.getElementById("dropdownMenu");
+            if (!document.querySelector(".user-menu").contains(event.target))
+                menu.style.display = "none";
+        });
+    </script>
+
+</body>
+
+</html>

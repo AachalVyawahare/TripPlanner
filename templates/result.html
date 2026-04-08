@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Your Travel Plan</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .dest-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 4px 2px;
+        }
+
+        .dest-card {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.13);
+            background: #fff;
+            cursor: pointer;
+            transition: transform .25s, box-shadow .25s;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dest-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
+        }
+
+        .dest-card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .dest-card-img-placeholder {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #1d2671, #c33764);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .dest-card-img-placeholder span {
+            font-size: 42px;
+        }
+
+        .dest-card-img-placeholder p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+            text-align: center;
+            padding: 0 12px;
+        }
+
+        .dest-card-body {
+            padding: 16px 18px 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .dest-card-title {
+            font-size: 17px;
+            font-weight: 800;
+            color: #1d2671;
+            margin: 0 0 4px;
+        }
+
+        .dest-card-row {
+            font-size: 13px;
+            color: #444;
+            line-height: 1.5;
+            display: flex;
+            gap: 6px;
+        }
+
+        .dest-card-row span.label {
+            font-weight: 700;
+            color: #c33764;
+            white-space: nowrap;
+        }
+
+        .dest-card-maps {
+            margin-top: 10px;
+            display: inline-block;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #1d2671, #c33764);
+            color: white;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-decoration: none;
+            align-self: flex-start;
+            transition: opacity .2s;
+        }
+
+        .dest-card-maps:hover {
+            opacity: .85;
+        }
+
+        .dest-food-section {
+            margin-top: 24px;
+            background: #fff;
+            border-radius: 16px;
+            padding: 22px 24px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.13);
+        }
+
+        .dest-food-title {
+            font-size: 17px;
+            font-weight: 800;
+            color: #1d2671;
+            margin: 0 0 14px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(29, 38, 113, 0.08);
+        }
+
+        .dest-food-item {
+            font-size: 14px;
+            color: #333;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            line-height: 1.6;
+            display: flex;
+            gap: 8px;
+        }
+
+        .dest-food-item:last-child {
+            border-bottom: none;
+        }
+
+        .dest-food-dot {
+            color: #c33764;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .day-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .day-item {
+            background: #fff;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 22px;
+            cursor: pointer;
+            background: #fff;
+            transition: background .2s;
+            user-select: none;
+        }
+
+        .day-header:hover {
+            background: #f5f6ff;
+        }
+
+        .day-header-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .day-num-badge {
+            background: linear-gradient(135deg, #1d2671, #c33764);
+            color: white;
+            font-size: 13px;
+            font-weight: 900;
+            padding: 6px 14px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .day-header-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: #1d2671;
+        }
+
+        .day-header-sub {
+            font-size: 12px;
+            color: #888;
+            margin-top: 2px;
+        }
+
+        .day-chevron {
+            font-size: 18px;
+            color: #c33764;
+            font-weight: bold;
+            transition: transform .3s ease;
+        }
+
+        .day-item.open .day-chevron {
+            transform: rotate(180deg);
+        }
+
+        .day-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .45s ease;
+            border-top: 0px solid rgba(29, 38, 113, 0.08);
+        }
+
+        .day-item.open .day-body {
+            max-height: 3000px;
+            border-top: 2px solid rgba(29, 38, 113, 0.08);
+        }
+
+        .day-body-inner {
+            padding: 20px 22px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .slot-card {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.09);
+            background: #fafafa;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .slot-img-wrap {
+            width: 160px;
+            min-width: 160px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .slot-img {
+            width: 160px;
+            height: 100%;
+            min-height: 140px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .slot-img-placeholder {
+            width: 160px;
+            min-height: 140px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .slot-img-placeholder span {
+            font-size: 32px;
+        }
+
+        .slot-img-placeholder p {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 0;
+            text-align: center;
+            padding: 0 8px;
+        }
+
+        .slot-img-placeholder.morning {
+            background: linear-gradient(135deg, #f6d365, #fda085);
+        }
+
+        .slot-img-placeholder.afternoon {
+            background: linear-gradient(135deg, #89f7fe, #66a6ff);
+        }
+
+        .slot-img-placeholder.evening {
+            background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+        }
+
+        .slot-info {
+            padding: 14px 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .slot-time-label {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .6px;
+            margin-bottom: 2px;
+        }
+
+        .slot-time-label.morning {
+            color: #e07b39;
+        }
+
+        .slot-time-label.afternoon {
+            color: #3a7bd5;
+        }
+
+        .slot-time-label.evening {
+            color: #9b59b6;
+        }
+
+        .slot-place-name {
+            font-size: 15px;
+            font-weight: 900;
+            color: #1d2671;
+        }
+
+        .slot-detail-row {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.5;
+            display: flex;
+            gap: 6px;
+        }
+
+        .slot-detail-row b {
+            color: #1d2671;
+            white-space: nowrap;
+        }
+
+        .slot-cost-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            background: rgba(29, 38, 113, 0.08);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #1d2671;
+            align-self: flex-start;
+            margin-top: 4px;
+        }
+
+        .slot-maps-btn {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 7px 14px;
+            background: linear-gradient(135deg, #1d2671, #c33764);
+            color: white;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-decoration: none;
+            align-self: flex-start;
+            transition: opacity .2s;
+        }
+
+        .slot-maps-btn:hover {
+            opacity: .85;
+        }
+
+        .day-summary-bar {
+            margin-top: 4px;
+            padding: 11px 16px;
+            background: linear-gradient(135deg, rgba(29, 38, 113, 0.06), rgba(195, 55, 100, 0.06));
+            border-radius: 12px;
+            font-size: 13px;
+            color: #333;
+            font-style: italic;
+            border-left: 3px solid #c33764;
+        }
+
+        @media(max-width:600px) {
+            .dest-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .slot-card {
+                flex-direction: column;
+            }
+
+            .slot-img-wrap,
+            .slot-img,
+            .slot-img-placeholder {
+                width: 100%;
+                min-width: unset;
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-logos">
+        <img src="/static/image/logo.png" class="logo-left">
+        <div class="user-menu">
+            <div class="menu-icon user-menu-btn" onclick="toggleMenu(event)">
+                <div class="user-avatar">{{ session['user']['name'][0] | upper }}</div>
+                <span class="user-menu-name">{{ session['user']['name'].split()[0] }}</span>
+                <span class="user-menu-arrow">▾</span>
+            </div>
+            <div id="dropdownMenu" class="dropdown-content">
+                <div class="profile-info">
+                    <div class="profile-avatar-big">{{ session['user']['name'][0] | upper }}</div>
+                    <strong>{{ session['user']['name'] }}</strong><br>
+                    <small>{{ session['user']['email'] }}</small>
+                </div>
+                <hr>
+                <a href="/">🏠 Home</a>
+                <a href="/history">📋 History</a>
+                <a href="/edit-profile">✏️ Edit Profile</a>
+                <a href="/logout" style="color:#c33764;">🚪 Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>🧠 AI Generated Travel Plan</h1>
+        <h3 class="subtitle">Explore your trip step-by-step</h3>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab('budget',this)">💰 Budget</button>
+            <button class="tab-btn" onclick="openTab('weather',this)">🌤 Weather</button>
+            <button class="tab-btn" onclick="openTab('destinations',this)">📍 Destinations</button>
+            <button class="tab-btn" onclick="openTab('itinerary',this)">🗓 Day Plan</button>
+            <button class="tab-btn" onclick="openTab('hotels',this)">🏨 Hotels</button>
+            <button class="tab-btn" onclick="openTab('transport',this)">🚆 Transport</button>
+            <button class="tab-btn verdict-btn" onclick="openTab('reflection',this)">🤖 AI Verdict</button>
+        </div>
+
+        <div id="budget" class="tab-content active">
+            <div class="card output-card">
+                <div class="output-text">{{ budget }}</div>
+            </div>
+        </div>
+
+        <div id="weather" class="tab-content">
+            <div class="card output-card">
+                <div class="output-text">{{ weather }}</div>
+            </div>
+        </div>
+
+        <div id="destinations" class="tab-content">
+            <div id="destCardsContainer">
+                <div id="destLoading" style="text-align:center;padding:40px;color:#fff;">
+                    <div style="font-size:32px;margin-bottom:10px;">🗺️</div>
+                    <div style="font-size:15px;">Loading destination cards...</div>
+                </div>
+            </div>
+            <div id="destRawText" style="display:none;">{{ destinations }}</div>
+            <div id="destCity" style="display:none;">{{ to_city }}</div>
+        </div>
+
+        <div id="itinerary" class="tab-content">
+            <div id="dayPlanContainer">
+                <div id="dayPlanLoading" style="text-align:center;padding:40px;color:#fff;">
+                    <div style="font-size:32px;margin-bottom:10px;">🗓️</div>
+                    <div style="font-size:15px;">Building your itinerary...</div>
+                </div>
+            </div>
+            <div id="dayPlanRawText" style="display:none;">{{ day_plan }}</div>
+            <div id="dayPlanCity" style="display:none;">{{ to_city }}</div>
+        </div>
+
+        <div id="hotels" class="tab-content">
+            <div class="card output-card">
+                <div class="output-text">{{ hotels }}</div>
+            </div>
+        </div>
+
+        <div id="transport" class="tab-content">
+            <div class="card output-card">
+                <div class="output-text">{{ transport }}</div>
+            </div>
+            <div id="bookingLinks" style="margin-top:18px;"></div>
+            <div id="bookingMeta" data-from="{{ from_city }}" data-to="{{ to_city }}"
+                data-transport="{{ transport_mode }}" style="display:none;"></div>
+        </div>
+
+        <div id="reflection" class="tab-content">
+            <div class="card output-card verdict-card">
+                <h3 style="color:#1d2671;margin-bottom:15px;">🤖 Agent's Final Verdict</h3>
+                <p style="font-size:13px;color:#888;margin-bottom:15px;">This review was generated by the Reflection
+                    Agent — an AI that cross-checks all other agents for contradictions and gives an overall
+                    recommendation.</p>
+                <div class="output-text">{{ reflection }}</div>
+            </div>
+        </div>
+
+        <div class="card email-card" style="margin-top:25px;">
+            <h3 style="margin-bottom:15px;color:#1d2671;">📧 Send Plan to Email</h3>
+            <input type="hidden" id="planToCity" value="{{ to_city }}">
+            <textarea id="planFullText" style="display:none;">
+{{ budget }}
+---
+{{ weather }}
+---
+{{ destinations }}
+---
+DAY BY DAY PLAN:
+{{ day_plan }}
+---
+{{ hotels }}
+---
+{{ transport }}
+---
+AI VERDICT:
+{{ reflection }}
+            </textarea>
+            <div class="email-row">
+                <input type="email" id="extraEmailInput" placeholder="Send to another email (optional)"
+                    style="flex:1;margin-top:0;">
+                <button id="sendPdfBtn" onclick="sendPdf()" style="margin-top:0;width:auto;padding:14px 28px;">Send PDF
+                    📨</button>
+            </div>
+        </div>
+
+        <div id="toast"
+            style="display:none;position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#1d2671;color:white;padding:14px 28px;border-radius:30px;font-size:15px;font-weight:bold;box-shadow:0 8px 24px rgba(0,0,0,0.3);z-index:99999;transition:opacity .4s;">
+        </div>
+
+        <div class="project-credit">Designed & Developed by AI & DS Final Year Team — BNCOE</div>
+    </div>
+
+    <script>
+        function showToast(msg, ok) { const t = document.getElementById('toast'); t.textContent = msg; t.style.background = ok ? '#1d2671' : '#c33764'; t.style.display = 'block'; t.style.opacity = '1'; setTimeout(() => { t.style.opacity = '0'; setTimeout(() => { t.style.display = 'none'; }, 400); }, 3500); }
+        async function sendPdf() { const btn = document.getElementById('sendPdfBtn'); btn.textContent = 'Sending... ⏳'; btn.disabled = true; const fd = new FormData(); fd.append('full_plan', document.getElementById('planFullText').value); fd.append('to_city', document.getElementById('planToCity').value); fd.append('extra_email', document.getElementById('extraEmailInput').value.trim()); try { const r = await fetch('/send-pdf', { method: 'POST', body: fd }); const d = await r.json(); showToast(d.message, d.status === 'success'); } catch (e) { showToast('Something went wrong.', false); } finally { btn.textContent = 'Send PDF 📨'; btn.disabled = false; } }
+        async function fetchWikipediaImage(name, city) { for (const q of [`${name} ${city}`, name]) { try { const r = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(q)}`); if (!r.ok) continue; const d = await r.json(); if (d.thumbnail?.source) return d.thumbnail.source.replace(/\/\d+px-/, '/600px-'); } catch (e) { } } return null; }
+        function parseDestinations(raw) { const places = [], food = []; let inFood = false, cur = null; for (let line of raw.split('\n')) { line = line.trim(); if (!line) continue; if (line.toLowerCase().includes('local food') || line.toLowerCase().includes('food to try')) { inFood = true; if (cur) { places.push(cur); cur = null; } continue; } if (inFood) { if (line.startsWith('-') || line.startsWith('•')) food.push(line.replace(/^[-•]\s*/, '').trim()); continue; } const m = line.match(/^(\d+)[\.\)]\s+(.+)/); if (m) { if (cur) places.push(cur); cur = { name: m[2].trim(), why: '', bestTime: '', dontMiss: '', entry: '' }; continue; } if (cur) { const l = line.toLowerCase(); if (l.startsWith('why visit:')) cur.why = line.replace(/why visit:/i, '').trim(); else if (l.startsWith('best time:')) cur.bestTime = line.replace(/best time:/i, '').trim(); else if (l.match(/^don'?t miss:/i)) cur.dontMiss = line.replace(/don'?t miss:/i, '').trim(); else if (l.startsWith('entry fee:')) cur.entry = line.replace(/entry fee:/i, '').trim(); else if (l.startsWith('entry:')) cur.entry = line.replace(/entry:/i, '').trim(); else if (!cur.why && !line.includes(':')) cur.why += ' ' + line; } } if (cur) places.push(cur); return { places, food }; }
+        async function renderDestinationCards() { const raw = document.getElementById('destRawText').innerText.trim(); const city = document.getElementById('destCity').innerText.trim(); const cont = document.getElementById('destCardsContainer'); const { places, food } = parseDestinations(raw); document.getElementById('destLoading').remove(); if (!places.length) { cont.innerHTML = `<div class="card"><div class="output-text">${raw}</div></div>`; return; } const grid = document.createElement('div'); grid.className = 'dest-grid'; for (const p of places) { const i = places.indexOf(p); const card = document.createElement('a'); card.className = 'dest-card'; card.href = `https://www.google.com/maps/search/${encodeURIComponent(p.name + ' ' + city)}`; card.target = '_blank'; card.rel = 'noopener noreferrer'; card.innerHTML = `<div class="dest-card-img-placeholder" id="dph-${i}"><span>🗺️</span><p>${p.name}</p></div><div class="dest-card-body"><div class="dest-card-title">📍 ${p.name}</div>${p.why ? `<div class="dest-card-row"><span class="label">Why Visit:</span><span>${p.why}</span></div>` : ''}${p.bestTime ? `<div class="dest-card-row"><span class="label">Best Time:</span><span>${p.bestTime}</span></div>` : ''}${p.dontMiss ? `<div class="dest-card-row"><span class="label">Don't Miss:</span><span>${p.dontMiss}</span></div>` : ''}${p.entry ? `<div class="dest-card-row"><span class="label">Entry Fee:</span><span>${p.entry}</span></div>` : ''}<span class="dest-card-maps">📍 Open in Maps</span></div>`; grid.appendChild(card); fetchWikipediaImage(p.name, city).then(url => { const ph = document.getElementById(`dph-${i}`); if (url && ph) { const img = document.createElement('img'); img.className = 'dest-card-img'; img.src = url; img.alt = p.name; img.loading = 'lazy'; ph.replaceWith(img); } }); } cont.appendChild(grid); if (food.length) { const fs = document.createElement('div'); fs.className = 'dest-food-section'; fs.innerHTML = `<div class="dest-food-title">🍽️ Local Food to Try</div>${food.map(f => `<div class="dest-food-item"><span class="dest-food-dot">●</span><span>${f}</span></div>`).join('')}`; cont.appendChild(fs); } }
+        renderDestinationCards();
+        function parseDayPlan(raw) { const days = []; let curDay = null, curSlot = null; for (let line of raw.split('\n')) { line = line.trim(); if (!line) continue; const dm = line.match(/^DAY\s+(\d+):?/i); if (dm) { if (curDay) { if (curSlot) { curDay.slots.push(curSlot); curSlot = null; } days.push(curDay); } curDay = { number: dm[1], slots: [], summary: '' }; const after = line.replace(/^DAY\s+\d+:?\s*/i, '').trim(); curDay.title = after || ''; continue; } if (!curDay) continue; if (line.toLowerCase().startsWith('day summary:')) { curDay.summary = line.replace(/day summary:/i, '').trim(); continue; } const sm = line.match(/^(Morning|Afternoon|Evening)\s*[\(\[]?(.*?)[\)\]]?:?$/i); if (sm) { if (curSlot) curDay.slots.push(curSlot); curSlot = { type: sm[1].toLowerCase(), time: sm[2] ? sm[2].trim() : '', place: '', activity: '', tip: '', cost: '' }; continue; } if (curSlot) { const c = line.replace(/^[-•]\s*/, ''); const l = c.toLowerCase(); if (l.startsWith('place:')) curSlot.place = c.replace(/place:/i, '').trim(); else if (l.startsWith('activity:')) curSlot.activity = c.replace(/activity:/i, '').trim(); else if (l.startsWith('travel tip:')) curSlot.tip = c.replace(/travel tip:/i, '').trim(); else if (l.startsWith('est. cost:')) curSlot.cost = c.replace(/est\. cost:/i, '').trim(); else if (l.startsWith('cost:')) curSlot.cost = c.replace(/cost:/i, '').trim(); } } if (curDay) { if (curSlot) curDay.slots.push(curSlot); days.push(curDay); } return days; }
+        async function renderDayPlan() { const raw = document.getElementById('dayPlanRawText').innerText.trim(); const city = document.getElementById('dayPlanCity').innerText.trim(); const cont = document.getElementById('dayPlanContainer'); document.getElementById('dayPlanLoading').remove(); const days = parseDayPlan(raw); if (!days.length) { cont.innerHTML = `<div class="card"><div class="output-text">${raw}</div></div>`; return; } const slotMeta = { morning: { icon: '🌅', label: 'Morning', emoji: '🌅' }, afternoon: { icon: '☀️', label: 'Afternoon', emoji: '☀️' }, evening: { icon: '🌆', label: 'Evening', emoji: '🌆' } }; const accordion = document.createElement('div'); accordion.className = 'day-accordion'; for (const day of days) { const places = day.slots.map(s => s.place).filter(Boolean); const subtitle = places.length ? places.join(' · ') : city; const shortTitle = day.title || subtitle; const item = document.createElement('div'); item.className = 'day-item'; item.id = `day-item-${day.number}`; const header = document.createElement('div'); header.className = 'day-header'; header.innerHTML = `<div class="day-header-left"><div class="day-num-badge">DAY ${day.number}</div><div><div class="day-header-title">${shortTitle || 'Day ' + day.number + ' in ' + city}</div><div class="day-header-sub">${places.length} places · click to expand</div></div></div><div class="day-chevron">▼</div>`; const body = document.createElement('div'); body.className = 'day-body'; const inner = document.createElement('div'); inner.className = 'day-body-inner'; for (const slot of day.slots) { const meta = slotMeta[slot.type] || { icon: '🕐', label: slot.type, emoji: '🕐' }; const slotId = `slot-${day.number}-${slot.type}`; const mapsUrl = slot.place ? `https://www.google.com/maps/search/${encodeURIComponent(slot.place + ' ' + city)}` : '#'; const card = document.createElement('div'); card.className = 'slot-card'; card.innerHTML = `<div class="slot-img-wrap"><div class="slot-img-placeholder ${slot.type}" id="${slotId}-ph"><span>${meta.emoji}</span><p>${slot.place || meta.label}</p></div></div><div class="slot-info"><div class="slot-time-label ${slot.type}">${meta.label}${slot.time ? ' (' + slot.time + ')' : ''}</div>${slot.place ? `<div class="slot-place-name">📍 ${slot.place}</div>` : ''}${slot.activity ? `<div class="slot-detail-row"><b>Activity:</b><span>${slot.activity}</span></div>` : ''}${slot.tip ? `<div class="slot-detail-row"><b>Travel Tip:</b><span>${slot.tip}</span></div>` : ''}${slot.cost ? `<span class="slot-cost-badge">💰 ${slot.cost}</span>` : ''}${slot.place ? `<a class="slot-maps-btn" href="${mapsUrl}" target="_blank" rel="noopener">📍 Open in Maps</a>` : ''}</div>`; inner.appendChild(card); if (slot.place) { fetchWikipediaImage(slot.place, city).then(url => { const ph = document.getElementById(`${slotId}-ph`); if (url && ph) { const img = document.createElement('img'); img.className = 'slot-img'; img.src = url; img.alt = slot.place; img.loading = 'lazy'; ph.replaceWith(img); } }); } } if (day.summary) { const sumBar = document.createElement('div'); sumBar.className = 'day-summary-bar'; sumBar.textContent = '✨ ' + day.summary; inner.appendChild(sumBar); } body.appendChild(inner); item.appendChild(header); item.appendChild(body); header.addEventListener('click', () => { const isOpen = item.classList.contains('open'); document.querySelectorAll('.day-item.open').forEach(el => el.classList.remove('open')); if (!isOpen) item.classList.add('open'); }); accordion.appendChild(item); } cont.appendChild(accordion); }
+        renderDayPlan();
+        function buildBookingLinks() { const meta = document.getElementById('bookingMeta'); const cont = document.getElementById('bookingLinks'); if (!meta || !cont) return; const t = meta.dataset.transport.toLowerCase(); const links = t === 'train' ? [{ label: '🚆 Book on IRCTC', url: 'https://www.irctc.co.in', note: 'Official Indian Railways booking', color: '#1a6bb5' }, { label: '🚆 Book on MakeMyTrip', url: 'https://www.makemytrip.com/railways/', note: 'Compare train prices and availability', color: '#e74c3c' }, { label: '🚆 Book on RailYatri', url: 'https://www.railyatri.in', note: 'Live train status and ticket booking', color: '#e67e22' }] : t === 'bus' ? [{ label: '🚌 Book on RedBus', url: 'https://www.redbus.in', note: "India's largest bus booking platform", color: '#d92b1b' }, { label: '🚌 Book on AbhiBus', url: 'https://www.abhibus.com', note: 'Compare hundreds of bus operators', color: '#27ae60' }, { label: '🚌 Book on MakeMyTrip', url: 'https://www.makemytrip.com/bus-tickets/', note: 'Buses and hotels in one place', color: '#e74c3c' }] : t === 'flight' ? [{ label: '✈️ Book on MakeMyTrip', url: 'https://www.makemytrip.com/flights/', note: 'Compare all airlines and prices', color: '#e74c3c' }, { label: '✈️ Book on IndiGo', url: 'https://www.goindigo.in', note: "India's most popular low-cost airline", color: '#1b4fa8' }, { label: '✈️ Book on Air India', url: 'https://www.airindia.com', note: 'Full service national carrier', color: '#c0392b' }, { label: '✈️ Book on EaseMyTrip', url: 'https://www.easemytrip.com', note: 'Often has cheaper fares', color: '#8e44ad' }] : [{ label: '🔍 MakeMyTrip', url: 'https://www.makemytrip.com', note: 'Flights, trains, buses — all in one', color: '#e74c3c' }, { label: '🚆 IRCTC', url: 'https://www.irctc.co.in', note: 'Official Indian railways booking', color: '#1a6bb5' }, { label: '🚌 RedBus', url: 'https://www.redbus.in', note: "India's largest bus booking platform", color: '#d92b1b' }]; cont.innerHTML = `<div style="background:rgba(255,255,255,0.95);border-radius:16px;padding:22px 24px;box-shadow:0 8px 24px rgba(0,0,0,0.13);"><div style="font-size:16px;font-weight:800;color:#1d2671;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid rgba(29,38,113,0.08);">🎟️ Book Your Tickets</div><div style="display:flex;flex-direction:column;gap:10px;">${links.map(l => `<a href="${l.url}" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:${l.color};color:white;border-radius:12px;text-decoration:none;gap:12px;" onmouseover="this.style.opacity='0.88';this.style.transform='translateY(-2px)'" onmouseout="this.style.opacity='1';this.style.transform='translateY(0)'"><div><div style="font-weight:800;font-size:14px;">${l.label}</div><div style="font-size:12px;opacity:.85;margin-top:3px;">${l.note}</div></div><div style="font-size:18px;">→</div></a>`).join('')}</div></div>`; }
+        buildBookingLinks();
+        function openTab(id, btn) { document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active')); document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active')); document.getElementById(id).classList.add('active'); btn.classList.add('active'); }
+        function toggleMenu(e) { e.stopPropagation(); const m = document.getElementById('dropdownMenu'); m.style.display = m.style.display === 'block' ? 'none' : 'block'; }
+        document.addEventListener('click', e => { const m = document.getElementById('dropdownMenu'); if (!document.querySelector('.user-menu').contains(e.target)) m.style.display = 'none'; });
+    </script>
+</body>
+
+</html>

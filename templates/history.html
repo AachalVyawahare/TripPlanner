@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Your Trip History</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .history-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 22px 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.13);
+        }
+
+        .history-card h3 {
+            color: #1d2671;
+            font-size: 18px;
+            margin: 0 0 8px 0;
+        }
+
+        .history-meta {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 6px;
+        }
+
+        .history-date {
+            font-size: 12px;
+            color: #aaa;
+            margin-bottom: 14px;
+        }
+
+        .history-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 14px;
+            gap: 12px;
+        }
+
+        .btn-view {
+            background: linear-gradient(135deg, #1d2671, #c33764);
+            color: white;
+            border: none;
+            padding: 9px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-delete {
+            background: transparent;
+            color: #e74c3c;
+            border: 2px solid #e74c3c;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-delete:hover {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .plan-preview {
+            margin-top: 14px;
+            background: #f8f8f8;
+            border-radius: 10px;
+            padding: 14px 16px;
+            font-size: 12px;
+            color: #444;
+            line-height: 1.7;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .confirm-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .confirm-overlay.active {
+            display: flex;
+        }
+
+        .confirm-box {
+            background: white;
+            border-radius: 16px;
+            padding: 30px 32px;
+            text-align: center;
+            max-width: 360px;
+            width: 90%;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+        }
+
+        .confirm-box h3 {
+            color: #1d2671;
+            margin: 0 0 10px 0;
+            font-size: 18px;
+        }
+
+        .confirm-box p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 22px;
+        }
+
+        .confirm-btns {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .confirm-yes {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .confirm-no {
+            background: #f0f0f0;
+            color: #333;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #toast {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1d2671;
+            color: white;
+            padding: 13px 26px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            z-index: 99999;
+            transition: opacity 0.4s ease;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-logos">
+        <img src="/static/image/logo.png" class="logo-left">
+
+        <div class="user-menu">
+            <div class="menu-icon user-menu-btn" onclick="toggleMenu(event)">
+                <div class="user-avatar">{{ session['user']['name'][0] | upper }}</div>
+                <span class="user-menu-name">{{ session['user']['name'].split()[0] }}</span>
+                <span class="user-menu-arrow">▾</span>
+            </div>
+            <div id="dropdownMenu" class="dropdown-content">
+                <div class="profile-info">
+                    <div class="profile-avatar-big">{{ session['user']['name'][0] | upper }}</div>
+                    <strong>{{ session['user']['name'] }}</strong><br>
+                    <small>{{ session['user']['email'] }}</small>
+                </div>
+                <hr>
+                <a href="/">🏠 Home</a>
+                <a href="/edit-profile">✏️ Edit Profile</a>
+                <a href="/logout" style="color:#c33764;">🚪 Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>📜 Your Trip History</h1>
+        <h3 class="subtitle">Previously Generated Travel Plans</h3>
+
+        {% if trips %}
+        {% for trip in trips %}
+        {% set tid = trip._id.__str__() %}
+        <div class="history-card" id="card-{{ tid }}">
+            <h3>✈️ {{ trip.from_city }} → {{ trip.to_city }}</h3>
+            <div class="history-meta">
+                💰 Budget: ₹{{ trip.budget }} &nbsp;|&nbsp;
+                📅 {{ trip.days }} Days / {{ trip.nights }} Nights &nbsp;|&nbsp;
+                🚗 {{ trip.transport | capitalize }}
+            </div>
+            <div class="history-date">
+                🕐 Created on: {{ trip.created_at.strftime('%d %b %Y at %H:%M') }}
+            </div>
+            <div class="history-card-footer">
+                <button class="btn-view" onclick="togglePlan('plan-{{ tid }}', this)">👁 View Plan</button>
+                <button class="btn-delete"
+                    onclick="confirmDelete('{{ tid }}', '{{ trip.from_city }} to {{ trip.to_city }}')">🗑
+                    Delete</button>
+            </div>
+            <div class="plan-preview" id="plan-{{ tid }}">{{ trip.full_plan.budget }}
+
+                {{ trip.full_plan.weather }}
+
+                {{ trip.full_plan.destinations }}
+
+                {{ trip.full_plan.hotels }}
+
+                {{ trip.full_plan.transport }}</div>
+        </div>
+        {% endfor %}
+
+        {% else %}
+        <div class="history-card" style="text-align:center;padding:40px;">
+            <div style="font-size:40px;margin-bottom:12px;">🗺️</div>
+            <p style="color:#888;font-size:15px;">No trip history found. Plan your first trip!</p>
+            <a href="/" class="btn-view" style="margin-top:14px;display:inline-block;">Start Planning</a>
+        </div>
+        {% endif %}
+
+        <div style="text-align:center;margin-top:20px;">
+            <a href="/" style="color:#fff;text-decoration:underline;font-size:14px;">← Back to Planner</a>
+        </div>
+    </div>
+
+    <div class="confirm-overlay" id="confirmOverlay">
+        <div class="confirm-box">
+            <h3>🗑 Delete Trip?</h3>
+            <p id="confirmText">Are you sure?</p>
+            <div class="confirm-btns">
+                <button class="confirm-yes" onclick="doDelete()">Yes, Delete</button>
+                <button class="confirm-no" onclick="closeConfirm()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast"></div>
+
+    <script>
+        let pendingDeleteId = null;
+
+        function togglePlan(planId, btn) {
+            const el = document.getElementById(planId);
+            if (el.style.display === "block") {
+                el.style.display = "none";
+                btn.textContent = "👁 View Plan";
+            } else {
+                el.style.display = "block";
+                btn.textContent = "▲ Hide Plan";
+            }
+        }
+
+        function confirmDelete(tripId, tripName) {
+            pendingDeleteId = tripId;
+            document.getElementById("confirmText").textContent = `Delete "${tripName}"? This cannot be undone.`;
+            document.getElementById("confirmOverlay").classList.add("active");
+        }
+
+        function closeConfirm() {
+            pendingDeleteId = null;
+            document.getElementById("confirmOverlay").classList.remove("active");
+        }
+
+        async function doDelete() {
+            if (!pendingDeleteId) return;
+            const idToDelete = pendingDeleteId;
+            closeConfirm();
+            try {
+                const res = await fetch("/delete-trip", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ trip_id: idToDelete }) });
+                const data = await res.json();
+                if (data.status === "success") {
+                    const card = document.getElementById("card-" + idToDelete);
+                    card.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+                    card.style.opacity = "0";
+                    card.style.transform = "translateX(40px)";
+                    setTimeout(() => card.remove(), 300);
+                    showToast("✅ Trip deleted successfully!");
+                } else {
+                    showToast("❌ " + (data.message || "Failed to delete."));
+                }
+            } catch (e) { showToast("❌ Something went wrong: " + e.message); }
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            toast.textContent = message;
+            toast.style.display = "block";
+            toast.style.opacity = "1";
+            setTimeout(() => { toast.style.opacity = "0"; setTimeout(() => { toast.style.display = "none"; }, 400); }, 3000);
+        }
+
+        document.getElementById("confirmOverlay").addEventListener("click", function (e) {
+            if (e.target === this) closeConfirm();
+        });
+
+        function toggleMenu(event) {
+            event.stopPropagation();
+            const menu = document.getElementById("dropdownMenu");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+        document.addEventListener("click", function (event) {
+            const menu = document.getElementById("dropdownMenu");
+            if (!document.querySelector(".user-menu").contains(event.target))
+                menu.style.display = "none";
+        });
+    </script>
+
+</body>
+
+</html>

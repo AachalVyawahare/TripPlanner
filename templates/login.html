@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login – Agentic AI Trip Planner</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="top-logos">
+        <img src="/static/image/logo.png" alt="Left Logo" class="logo-left">
+    </div>
+
+    <div class="auth-page">
+        <div class="auth-card">
+
+            <div class="auth-brand">
+                <h1 class="auth-app-title">✈️ AI Trip Planner</h1>
+                <p class="auth-app-sub">Your Agentic Travel Companion</p>
+            </div>
+
+            <h2>Login</h2>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            <form method="POST" class="auth-form">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+
+            <p class="auth-switch">
+                Don't have an account? <a href="/register">Register</a>
+            </p>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

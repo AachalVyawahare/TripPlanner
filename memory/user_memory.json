@@ -1,0 +1,1793 @@
+[
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": "Water Park"
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "mumbai",
+        "budget": 20000,
+        "days": 5,
+        "nights": 6,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "mumbai",
+        "budget": 19999,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 10000,
+        "days": 2,
+        "nights": 1,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 10000,
+        "days": 2,
+        "nights": 1,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 10000,
+        "days": 2,
+        "nights": 1,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 10000,
+        "days": 2,
+        "nights": 1,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 14000,
+        "days": 3,
+        "nights": 2,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 10000,
+        "days": 2,
+        "nights": 1,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "amravati",
+        "to_city": "mumbai",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "amravati",
+        "to_city": "mumbai",
+        "budget": 14444,
+        "days": 3,
+        "nights": 2,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 18000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "amravati",
+        "to_city": "mumbai",
+        "budget": 15000,
+        "days": 3,
+        "nights": 2,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 10000,
+        "days": 4,
+        "nights": 3,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "amravati",
+        "to_city": "mumbai",
+        "budget": 16000,
+        "days": 3,
+        "nights": 2,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "amravati",
+        "to_city": "mumbai",
+        "budget": 10000,
+        "days": 2,
+        "nights": 1,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 10000,
+        "days": 2,
+        "nights": 3,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 20000,
+        "days": 2,
+        "nights": 1,
+        "transport": "flight",
+        "extra": "beaches"
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "mumbai",
+        "budget": 14999,
+        "days": 3,
+        "nights": 2,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "mumbai",
+        "budget": 14999,
+        "days": 3,
+        "nights": 2,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "mumbai",
+        "budget": 14999,
+        "days": 3,
+        "nights": 2,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "mumbai",
+        "budget": 14999,
+        "days": 3,
+        "nights": 2,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "mumbai",
+        "budget": 14999,
+        "days": 3,
+        "nights": 2,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "mumbai",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "mumbai",
+        "budget": 14999,
+        "days": 3,
+        "nights": 2,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "mumbai",
+        "budget": 14999,
+        "days": 3,
+        "nights": 2,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "mumbai",
+        "budget": 14999,
+        "days": 3,
+        "nights": 2,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "mumbai",
+        "budget": 14999,
+        "days": 3,
+        "nights": 2,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "mumbai",
+        "budget": 14999,
+        "days": 3,
+        "nights": 2,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "mumbai",
+        "budget": 14999,
+        "days": 3,
+        "nights": 2,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "mumbai",
+        "budget": 14999,
+        "days": 3,
+        "nights": 2,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "mumbai",
+        "budget": 10000,
+        "days": 2,
+        "nights": 1,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "mumbai",
+        "budget": 14000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "mumbai",
+        "budget": 15900,
+        "days": 3,
+        "nights": 2,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "mumbai",
+        "budget": 14999,
+        "days": 3,
+        "nights": 2,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "mumbai",
+        "budget": 15000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "mumbai",
+        "budget": 14999,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "mumbai",
+        "budget": 15000,
+        "days": 3,
+        "nights": 2,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 20000,
+        "days": 3,
+        "nights": 2,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "mumbai",
+        "budget": 20000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 13000,
+        "days": 3,
+        "nights": 2,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 14000,
+        "days": 3,
+        "nights": 2,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 15000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 16000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 14000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 28000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "amravati",
+        "to_city": "mumbai",
+        "budget": 30000,
+        "days": 3,
+        "nights": 2,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 20000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 20000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 20000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "pune",
+        "to_city": "mumbai",
+        "budget": 40599,
+        "days": 3,
+        "nights": 2,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "amravati",
+        "to_city": "mumbai",
+        "budget": 24366,
+        "days": 6,
+        "nights": 5,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "amravati",
+        "to_city": "mumbai",
+        "budget": 30000,
+        "days": 6,
+        "nights": 5,
+        "transport": "train",
+        "extra": "beaches"
+    },
+    {
+        "from_city": "amravati",
+        "to_city": "mumbai",
+        "budget": 23500,
+        "days": 6,
+        "nights": 5,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "parbhani",
+        "to_city": "vaishnodevi",
+        "budget": 50766,
+        "days": 6,
+        "nights": 7,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "parbhani",
+        "to_city": "vaishnodevi",
+        "budget": 32455,
+        "days": 6,
+        "nights": 7,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "yavatmal",
+        "to_city": "Pune",
+        "budget": 12000,
+        "days": 2,
+        "nights": 1,
+        "transport": "train",
+        "extra": "templ"
+    },
+    {
+        "from_city": "yavatmal",
+        "to_city": "Pune",
+        "budget": 12000,
+        "days": 2,
+        "nights": 1,
+        "transport": "train",
+        "extra": "templ"
+    },
+    {
+        "from_city": "mumbai",
+        "to_city": "Nagpur",
+        "budget": 15000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Pune",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "mumbai",
+        "to_city": "nagpur",
+        "budget": 40000,
+        "days": 5,
+        "nights": 4,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "puttparti",
+        "budget": 5000,
+        "days": 2,
+        "nights": 3,
+        "transport": "train",
+        "extra": "temple"
+    },
+    {
+        "from_city": "yavatmal",
+        "to_city": "Nagpur",
+        "budget": 10000,
+        "days": 3,
+        "nights": 4,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "yavatmal",
+        "to_city": "Pune",
+        "budget": 5000,
+        "days": 2,
+        "nights": 1,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "yavatmal",
+        "to_city": "nagpur",
+        "budget": 10000,
+        "days": 2,
+        "nights": 3,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "yavatmal",
+        "to_city": "nagpur",
+        "budget": 10000,
+        "days": 3,
+        "nights": 4,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Hadgaon",
+        "to_city": "Pune",
+        "budget": 5000,
+        "days": 2,
+        "nights": 1,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Hadgaon",
+        "to_city": "Pune",
+        "budget": 38999,
+        "days": 4,
+        "nights": 5,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Nagpur",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "nagpur",
+        "budget": 10000,
+        "days": 3,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Hadgaon",
+        "to_city": "Pune",
+        "budget": 10000,
+        "days": 3,
+        "nights": 3,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Pune",
+        "budget": 4900,
+        "days": 2,
+        "nights": 3,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "mumbai",
+        "to_city": "Nagpur",
+        "budget": 3567,
+        "days": 2,
+        "nights": 1,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "mumbai",
+        "to_city": "Nagpur",
+        "budget": 3567,
+        "days": 2,
+        "nights": 1,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "mumbai",
+        "to_city": "Nagpur",
+        "budget": 23689,
+        "days": 4,
+        "nights": 5,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "yavatmal",
+        "to_city": "nagpur",
+        "budget": 24567,
+        "days": 2,
+        "nights": 1,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "yavatmal",
+        "to_city": "nagpur",
+        "budget": 24567,
+        "days": 2,
+        "nights": 1,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Hadgaon",
+        "to_city": "Pune",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "mumbai",
+        "budget": 20006,
+        "days": 2,
+        "nights": 1,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Hadgaon",
+        "to_city": "nagpur",
+        "budget": 23456,
+        "days": 3,
+        "nights": 4,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Pune",
+        "budget": 346545,
+        "days": 21,
+        "nights": 1,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Pune",
+        "budget": 13363,
+        "days": 2,
+        "nights": 1,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "pusad",
+        "budget": 20000,
+        "days": 2,
+        "nights": 3,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Hadgaon",
+        "to_city": "Pune",
+        "budget": 63579,
+        "days": 3,
+        "nights": 5,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "pusad",
+        "budget": 3533,
+        "days": 2,
+        "nights": 3,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Pune",
+        "budget": 4556,
+        "days": 2,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Hadgaon",
+        "to_city": "pusad",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "pusad",
+        "budget": 5000,
+        "days": 2,
+        "nights": 1,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "pusad",
+        "budget": 5000,
+        "days": 2,
+        "nights": 1,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "yavatmal",
+        "to_city": "Pune",
+        "budget": 20000,
+        "days": 4,
+        "nights": 3,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "nagpur",
+        "budget": 23,
+        "days": 1,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "nagpur",
+        "budget": 23,
+        "days": 1,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Pune",
+        "budget": 2743959,
+        "days": 29,
+        "nights": 28,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "mumbai",
+        "budget": 7489,
+        "days": 2,
+        "nights": 1,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Pune",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Nagpur",
+        "budget": 2345,
+        "days": 2,
+        "nights": 3,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "yavatmal",
+        "to_city": "Pune",
+        "budget": 10000,
+        "days": 2,
+        "nights": 3,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Pune",
+        "budget": 10000,
+        "days": 2,
+        "nights": 1,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Nagpur",
+        "budget": 34562,
+        "days": 2,
+        "nights": 3,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Nagpur",
+        "budget": 10000,
+        "days": 3,
+        "nights": 3,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Pune",
+        "budget": 34567,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "yavatmal",
+        "to_city": "Pune",
+        "budget": 34218,
+        "days": 2,
+        "nights": 3,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "yavatmal",
+        "to_city": "Pune",
+        "budget": 34218,
+        "days": 2,
+        "nights": 3,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Pune",
+        "budget": 32323,
+        "days": 2,
+        "nights": 1,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Pune",
+        "budget": 54543,
+        "days": 3,
+        "nights": 4,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Pune",
+        "budget": 34560,
+        "days": 2,
+        "nights": 3,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Pune",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "nagpur",
+        "budget": 10000,
+        "days": 3,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Pune",
+        "budget": 34569,
+        "days": 4,
+        "nights": 3,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Pune",
+        "budget": 10000,
+        "days": 2,
+        "nights": 3,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Nagpur",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Pune",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Pune",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Pune",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Pune",
+        "budget": 10000,
+        "days": 3,
+        "nights": 4,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Pune",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Pune",
+        "budget": 15000,
+        "days": 3,
+        "nights": 2,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Pune",
+        "budget": 3452,
+        "days": 2,
+        "nights": 3,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Pune",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "yavatmal",
+        "to_city": "Pune",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Hadgaon",
+        "to_city": "mumbai",
+        "budget": 10000,
+        "days": 2,
+        "nights": 3,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "nagpur",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Hadgaon",
+        "to_city": "Pune",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Pune",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Pune",
+        "budget": 10000,
+        "days": 3,
+        "nights": 3,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Pune",
+        "budget": 10000,
+        "days": 2,
+        "nights": 3,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "pune",
+        "budget": 10000,
+        "days": 4,
+        "nights": 3,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Mumbai",
+        "budget": 54000,
+        "days": 6,
+        "nights": 5,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Mumbai",
+        "budget": 60000,
+        "days": 6,
+        "nights": 5,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Mumbai",
+        "budget": 120000,
+        "days": 7,
+        "nights": 6,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "parbhani",
+        "to_city": "pune",
+        "budget": 35465,
+        "days": 5,
+        "nights": 4,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Kedarnath",
+        "budget": 60000,
+        "days": 6,
+        "nights": 5,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "pune",
+        "budget": 34655,
+        "days": 4,
+        "nights": 3,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "pune",
+        "budget": 43444,
+        "days": 4,
+        "nights": 3,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "parbhani",
+        "to_city": "Mumbai",
+        "budget": 45687,
+        "days": 4,
+        "nights": 3,
+        "transport": "bus",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Mumbai",
+        "budget": 53666,
+        "days": 4,
+        "nights": 3,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Mumbai",
+        "budget": 40000,
+        "days": 4,
+        "nights": 3,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "pune",
+        "budget": 40000,
+        "days": 6,
+        "nights": 5,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Mumbai",
+        "budget": 54677,
+        "days": 5,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Mumbai",
+        "budget": 54677,
+        "days": 5,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Mumbai",
+        "budget": 34344,
+        "days": 5,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Mumbai",
+        "budget": 35665,
+        "days": 5,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Mumbai",
+        "budget": 24355,
+        "days": 4,
+        "nights": 3,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Mumbai",
+        "budget": 24355,
+        "days": 4,
+        "nights": 3,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "nanded",
+        "to_city": "Mumbai",
+        "budget": 24355,
+        "days": 5,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "nanded",
+        "to_city": "Mumbai",
+        "budget": 24355,
+        "days": 5,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "banglore",
+        "budget": 20000,
+        "days": 2,
+        "nights": 3,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "banglore",
+        "budget": 20000,
+        "days": 2,
+        "nights": 3,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "banglore",
+        "budget": 20000,
+        "days": 2,
+        "nights": 3,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Mumbai",
+        "to_city": "Phu Quoc Island",
+        "budget": 40000,
+        "days": 5,
+        "nights": 4,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Mumbai",
+        "to_city": "Phu Quoc Island",
+        "budget": 75000,
+        "days": 5,
+        "nights": 4,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "bangalore",
+        "budget": 64578,
+        "days": 4,
+        "nights": 3,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "pusad",
+        "to_city": "bangalore",
+        "budget": 54978,
+        "days": 4,
+        "nights": 3,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "bangalore",
+        "budget": 59999,
+        "days": 5,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "bangalore",
+        "budget": 59999,
+        "days": 5,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "bangalore",
+        "budget": 59999,
+        "days": 5,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Bangalore",
+        "budget": 59999,
+        "days": 5,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Bangalore",
+        "budget": 59999,
+        "days": 5,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Bangalore",
+        "budget": 59999,
+        "days": 5,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Bangalore",
+        "budget": 59999,
+        "days": 5,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Bangalore",
+        "budget": 59999,
+        "days": 5,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Bangalore",
+        "budget": 59999,
+        "days": 5,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Bangalore",
+        "budget": 59999,
+        "days": 5,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Bangalore",
+        "budget": 59999,
+        "days": 5,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Bangalore",
+        "budget": 59999,
+        "days": 5,
+        "nights": 4,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Bangalore",
+        "budget": 59999,
+        "days": 5,
+        "nights": 4,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Bangalore",
+        "budget": 59999,
+        "days": 5,
+        "nights": 4,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Bangalore",
+        "budget": 59999,
+        "days": 5,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "shirdi",
+        "budget": 40000,
+        "days": 4,
+        "nights": 3,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "shirdi",
+        "budget": 40000,
+        "days": 4,
+        "nights": 3,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "amravati",
+        "budget": 40000,
+        "days": 4,
+        "nights": 3,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "amravati",
+        "budget": 40000,
+        "days": 5,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Amritsar",
+        "budget": 34567,
+        "days": 5,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Pusad",
+        "to_city": "Amritsar",
+        "budget": 34567,
+        "days": 4,
+        "nights": 3,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Delhi",
+        "budget": 54679,
+        "days": 6,
+        "nights": 5,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "jaisalmer",
+        "budget": 45676,
+        "days": 5,
+        "nights": 4,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Pune",
+        "to_city": "Kokan",
+        "budget": 87655,
+        "days": 8,
+        "nights": 9,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nagpur",
+        "to_city": "Begaluru",
+        "budget": 87676,
+        "days": 5,
+        "nights": 6,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Pune",
+        "to_city": "kokan",
+        "budget": 87655,
+        "days": 6,
+        "nights": 7,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "pudducherry",
+        "budget": 87654,
+        "days": 6,
+        "nights": 5,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "pudducherry",
+        "budget": 65444,
+        "days": 5,
+        "nights": 5,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Nanded",
+        "to_city": "Jodhpur",
+        "budget": 87654,
+        "days": 7,
+        "nights": 6,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Yavatmal",
+        "to_city": "Manali",
+        "budget": 87654,
+        "days": 8,
+        "nights": 7,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Yavatmal",
+        "to_city": "Manali",
+        "budget": 87655,
+        "days": 7,
+        "nights": 6,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Yavatmal",
+        "to_city": "Manali",
+        "budget": 87654,
+        "days": 7,
+        "nights": 6,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Yavatmal",
+        "to_city": "Manali",
+        "budget": 76544,
+        "days": 6,
+        "nights": 5,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Yavatmal",
+        "to_city": "Manali",
+        "budget": 76543,
+        "days": 6,
+        "nights": 5,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Nagpur",
+        "to_city": "Singapore",
+        "budget": 200000,
+        "days": 9,
+        "nights": 8,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Bangalore",
+        "to_city": "Mumbai",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "flight",
+        "extra": ""
+    },
+    {
+        "from_city": "Bangalore",
+        "to_city": "Mumbai",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Bangalore",
+        "to_city": "Mumbai",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Bangalore",
+        "to_city": "Mumbai",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Mumbai",
+        "to_city": "Nagpur",
+        "budget": 10000,
+        "days": 3,
+        "nights": 2,
+        "transport": "train",
+        "extra": ""
+    },
+    {
+        "from_city": "Pune",
+        "to_city": "Goa",
+        "budget": 35000,
+        "days": 5,
+        "nights": 6,
+        "transport": "train",
+        "extra": ""
+    }
+]

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Agentic AI Trip Planner</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="top-logos">
+        <img src="/static/image/logo.png" alt="Left Logo" class="logo-left">
+
+        <div class="user-menu">
+            <div class="menu-icon user-menu-btn" onclick="toggleMenu(event)">
+                <div class="user-avatar">{{ session['user']['name'][0] | upper }}</div>
+                <span class="user-menu-name">{{ session['user']['name'].split()[0] }}</span>
+                <span class="user-menu-arrow">▾</span>
+            </div>
+            <div id="dropdownMenu" class="dropdown-content">
+                <div class="profile-info">
+                    <div class="profile-avatar-big">{{ session['user']['name'][0] | upper }}</div>
+                    <strong>{{ session['user']['name'] }}</strong><br>
+                    <small>{{ session['user']['email'] }}</small>
+                </div>
+                <hr>
+                <a href="/history">📋 History</a>
+                <a href="/edit-profile">✏️ Edit Profile</a>
+                <a href="/logout" style="color:#c33764;">🚪 Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>✈️ Agentic AI Trip Planner</h1>
+        <h3 class="subtitle">One perfectly planned journey</h3>
+
+        <div class="glass-wrapper">
+            <form method="POST" class="card" id="tripForm">
+                <div class="grid">
+
+                    <div class="input-icon-wrap">
+                        <span class="input-icon">🏙️</span>
+                        <input type="text" name="from_city" placeholder="From City" required>
+                    </div>
+
+                    <div class="input-icon-wrap">
+                        <span class="input-icon">✈️</span>
+                        <input type="text" name="to_city" placeholder="Destination City" required>
+                    </div>
+
+                    <div class="input-icon-wrap">
+                        <span class="input-icon">💰</span>
+                        <input type="number" name="budget" placeholder="Budget (INR)" required>
+                    </div>
+
+                    <div class="input-icon-wrap">
+                        <span class="input-icon">📅</span>
+                        <input type="number" name="days" placeholder="Number of Days" required>
+                    </div>
+
+                    <div class="input-icon-wrap">
+                        <span class="input-icon">🌙</span>
+                        <input type="number" name="nights" placeholder="Number of Nights" required>
+                    </div>
+
+                    <div class="input-icon-wrap">
+                        <span class="input-icon">🚗</span>
+                        <select name="transport" id="transportSelect" required>
+                            <option value="" disabled selected>Select Transport</option>
+                            <option value="bus">Bus</option>
+                            <option value="train">Train</option>
+                            <option value="flight">Flight</option>
+                        </select>
+                    </div>
+
+                    <div class="input-icon-wrap grid-full">
+                        <span class="input-icon">❤️</span>
+                        <input type="text" name="extra" placeholder="Preferences (temples, beaches, etc)">
+                    </div>
+
+                </div>
+
+                <button type="submit">Plan My Trip 🚀</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- LOADER -->
+    <div id="loader" class="loader hidden">
+
+        <div class="loader-brand">
+            <div class="loader-brand-title">✈️ Agentic AI Trip Planner</div>
+            <div class="loader-brand-sub">Planning your perfect journey...</div>
+        </div>
+
+        <div class="vehicle bus"><img src="/static/assets/bus.png" alt="Bus"></div>
+        <div class="vehicle train"><img src="/static/assets/train.png" alt="Train"></div>
+        <div class="vehicle flight"><img src="/static/assets/plane.png" alt="Plane"></div>
+
+        <p class="loading-text" id="loadingText">🤖 Starting AI agents...</p>
+        <div class="status-log" id="statusLog"></div>
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+
+    </div>
+
+    <script>
+        const form = document.getElementById("tripForm");
+        const loader = document.getElementById("loader");
+        const transportSelect = document.getElementById("transportSelect");
+        const loadingText = document.getElementById("loadingText");
+        const statusLog = document.getElementById("statusLog");
+
+        form.addEventListener("submit", () => {
+            loader.classList.remove("hidden");
+            document.body.classList.add("loading");
+
+            document.querySelectorAll(".vehicle").forEach(v => v.style.display = "none");
+            const t = transportSelect.value;
+            if (t === "bus") document.querySelector(".bus").style.display = "block";
+            else if (t === "train") document.querySelector(".train").style.display = "block";
+            else if (t === "flight") document.querySelector(".flight").style.display = "block";
+
+            const evtSource = new EventSource("/stream-status");
+            evtSource.onmessage = function (e) {
+                const msg = JSON.parse(e.data);
+                if (msg !== "DONE") {
+                    loadingText.classList.remove("fade");
+                    void loadingText.offsetWidth;
+                    loadingText.classList.add("fade");
+                    loadingText.textContent = msg;
+                    const line = document.createElement("div");
+                    line.className = "log-line";
+                    line.textContent = msg;
+                    statusLog.appendChild(line);
+                    statusLog.scrollTop = statusLog.scrollHeight;
+                }
+                if (msg === "DONE") {
+                    loadingText.textContent = "✨ Plan ready! Loading results...";
+                    evtSource.close();
+                }
+            };
+            evtSource.onerror = () => evtSource.close();
+        });
+
+        function toggleMenu(event) {
+            event.stopPropagation();
+            const menu = document.getElementById("dropdownMenu");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+        document.addEventListener("click", function (event) {
+            const menu = document.getElementById("dropdownMenu");
+            if (!document.querySelector(".user-menu").contains(event.target))
+                menu.style.display = "none";
+        });
+    </script>
+
+</body>
+
+</html>
